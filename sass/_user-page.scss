@@ -1,0 +1,46 @@
+.list__order--user-page {
+  .user-page-brief {
+    .avatar {
+      width: 6rem;
+      height: 6rem;
+      margin: 1rem;
+
+      img {
+        border-radius: 50%;
+      }
+    }
+
+    .use-page-brief__right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .username {
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .edit {
+        color: rgba(0, 0, 0, 0.54);
+        font-style: italic;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .selection {
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    i {
+      margin-right: 1rem;
+    }
+
+    p {
+      margin: 0 !important;
+    }
+  }
+}

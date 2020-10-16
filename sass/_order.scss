@@ -1,0 +1,66 @@
+.list__order {
+  .list__order--list-info {
+    .shop-info {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 1px solid #303030;
+
+      .status {
+        color: #59bd1d;
+      }
+    }
+
+    .item {
+      border-bottom: 0.5px solid #d4d4d4;
+      padding-top: 2rem;
+
+      .image {
+        width: 8rem;
+        height: 8rem;
+      }
+      .information {
+        flex: 1;
+
+        .information--name {
+          font-size: 1.5rem;
+          font-weight: 700;
+        }
+
+        .category {
+          color: rgba(0, 0, 0, 0.54);
+        }
+      }
+
+      .price {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .price--origin {
+          text-decoration: line-through;
+          color: rgba(0, 0, 0, 0.54);
+        }
+      }
+    }
+  }
+
+  .list__order--footer {
+    display: flex;
+    justify-content: flex-end;
+    line-height: 3rem;
+    width: 100%;
+    margin-top: 2rem;
+
+    div,
+    button {
+      margin: 0 0.25rem;
+    }
+  }
+}
+
+address {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 0.75rem;
+}
