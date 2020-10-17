@@ -297,7 +297,7 @@ ol {
 }
 
 .spad {
-  padding-top: 100px;
+  padding-top: 50px;
   min-height: 100vh;
 }
 
@@ -2156,7 +2156,7 @@ address {
   cursor: pointer;
 }
 .list__order--user-page .selection {
-  margin-top: 0.25rem;
+  margin-top: 1rem;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -2164,6 +2164,7 @@ address {
 }
 .list__order--user-page .selection i {
   margin-right: 1rem;
+  margin-left: 2rem;
 }
 .list__order--user-page .selection p {
   margin: 0 !important;

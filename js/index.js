@@ -6,9 +6,17 @@ const renderListOrder = () => {
   document.querySelector(".list__order--list-info").innerHTML = list_order.map(
     (order, index) =>
       `<div class="shop-info row">
-        <p class="shop-name">${order.shop_name}</p>
-        <p class="time">${order.time}</p>
-        <p class="status">${order.status}</p>
+        <p class="shop-name" style="color: red; border: 1px solid red; padding: 0.25rem 0.5rem; border-radius: 0.5rem;">${
+          order.shop_name
+        }</p>
+        <div class="d-flex justify-content-end">
+          <p class="time mr-5" style="align-items: center; display: flex;">${
+            order.time
+          }</p>
+          <p class="status" style="border: 1px solid #59bd1d; padding: 0.25rem 0.5rem; border-radius: 0.5rem;">${
+            order.status
+          }</p>
+        </div>
       </div>
 
       ${order.list_item.map(
