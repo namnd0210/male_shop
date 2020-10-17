@@ -1143,52 +1143,53 @@ ol {
   font-weight: 700;
 }
 
-.list__order .list__order--list-info .shop-info {
+.list__order--list-info .shop-info {
   display: flex;
   justify-content: space-between;
   margin-top: 2rem;
   padding-bottom: 0.25rem;
   border-bottom: 1px solid #303030;
 }
-.list__order .list__order--list-info .shop-info .status {
+.list__order--list-info .shop-info .status {
   color: #59bd1d;
 }
-.list__order .list__order--list-info .item {
+.list__order--list-info .item {
   border-bottom: 0.5px solid #d4d4d4;
   padding-top: 2rem;
 }
-.list__order .list__order--list-info .item .image {
+.list__order--list-info .item .image {
   width: 8rem;
   height: 8rem;
 }
-.list__order .list__order--list-info .item .information {
+.list__order--list-info .item .information {
   flex: 1;
 }
-.list__order .list__order--list-info .item .information .information--name {
+.list__order--list-info .item .information .information--name {
   font-size: 1.5rem;
   font-weight: 700;
 }
-.list__order .list__order--list-info .item .information .category {
+.list__order--list-info .item .information .category {
   color: rgba(0, 0, 0, 0.54);
 }
-.list__order .list__order--list-info .item .price {
+.list__order--list-info .item .price {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.list__order .list__order--list-info .item .price .price--origin {
+.list__order--list-info .item .price .price--origin {
   text-decoration: line-through;
   color: rgba(0, 0, 0, 0.54);
 }
-.list__order .list__order--footer {
+
+.list__order--footer {
   display: flex;
   justify-content: flex-end;
   line-height: 3rem;
   width: 100%;
   margin-top: 2rem;
 }
-.list__order .list__order--footer div,
-.list__order .list__order--footer button {
+.list__order--footer div,
+.list__order--footer button {
   margin: 0 0.25rem;
 }
 

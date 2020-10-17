@@ -2,14 +2,6 @@ import data from "./data.js";
 
 let list_order = data;
 
-// const cancelOrder = (index) => {
-//   list_order = [
-//     ...list_order.splice(0, index),
-//     ...list_order.splice(index + 1),
-//   ];
-//   renderListOrder();
-// };
-
 const renderListOrder = () => {
   document.querySelector(".list__order--list-info").innerHTML = list_order.map(
     (order, index) =>
