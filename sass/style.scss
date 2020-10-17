@@ -1,17 +1,17 @@
 @import "variable";
 @import "mixins";
 
+@import "about";
 @import "base";
+@import "breadcrumb";
+@import "button";
+@import "footer";
 @import "header";
 @import "hero";
 @import "home-page";
-@import "product";
-@import "footer";
-@import "breadcrumb";
-@import "about";
-@import "responsive";
 @import "order";
-@import "user-page";
-@import "time-line";
-@import "button";
+@import "product";
+@import "responsive";
 @import "shopee-border-delivery";
+@import "time-line";
+@import "user-page";
