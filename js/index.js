@@ -49,7 +49,7 @@ const renderListOrder = () => {
         </button>
         <button type="button" class="btn btn-info">Đánh giá</button>
         <button type="button" class="btn btn-light">
-          <a href="order-details.html">Xem chi tiết đơn hàng</a>
+          <a href="order-details.php">Xem chi tiết đơn hàng</a>
         </button>
         <div class="cash"><i class="fa fa-money"></i></div>
         <div class="total">Tổng số tiền: $450</div>

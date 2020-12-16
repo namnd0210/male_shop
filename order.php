@@ -33,6 +33,7 @@
 
         <!-- Header Section Begin -->
         <header class="header">
+            <?php include('login.php') ?>
             <?php include('header.php'); ?>
         </header>
         </header>

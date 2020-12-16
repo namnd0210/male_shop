@@ -12,16 +12,21 @@
             <div class="col-lg-6 col-md-5">
                 <div class="header__top__right">
                     <div class="header__top__links">
-                        <a href="#">Đăng nhập</a>
-                        <a href="#">FAQs</a>
-                    </div>
-                    <div class="header__top__hover">
-                        <span>Usd <i class="arrow_carrot-down"></i></span>
-                        <ul>
-                            <li>USD</li>
-                            <li>EUR</li>
-                            <li>USD</li>
-                        </ul>
+                        <?php
+                                if (isset($_SESSION['name'])) {
+                                    if(isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1){
+                                        echo '<a href="admin/index.php" class="mr-2"><i class="fa fa-user mr-2"></i>'.$_SESSION['name'].'</a>';
+                                    }
+                                    else{
+                                        echo '<a href="order_user.php" class="mr-2"><i class="fa fa-user mr-2"></i>'.$_SESSION['name'].'</a>';
+                                    }
+                                    echo '<a href="controller/logout.php">Đăng xuất</a>';
+                                }
+                                else{
+                                    echo '<a href="javascript:" class="mr-2" class="action" data-toggle="modal" data-target="#loginModal">Đăng nhập</a>';
+                                    echo '<a href="register.php" class="mr-2">Đăng ký</a>';
+                                }
+                            ?>
                     </div>
                 </div>
             </div>
