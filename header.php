@@ -20,7 +20,7 @@
                                     else{
                                         echo '<a href="order_user.php" class="mr-2"><i class="fa fa-user mr-2"></i>'.$_SESSION['name'].'</a>';
                                     }
-                                    echo '<a href="controller/logout.php">Đăng xuất</a>';
+                                    echo '<a href="/male_shop/logout.php">Đăng xuất</a>';
                                 }
                                 else{
                                     echo '<a href="javascript:" class="mr-2" class="action" data-toggle="modal" data-target="#loginModal">Đăng nhập</a>';

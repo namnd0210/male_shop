@@ -39,7 +39,7 @@ if (isset($_POST['login']))
         // Thực thi hành động sau khi lưu thông tin vào session
         // ở đây mình tiến hành chuyển hướng trang web tới một trang gọi là index.php
         if($row['is_admin'] == 1){
-            header('Location: /ltw/admin/index.php');
+            header('Location: /male_shop/admin/index.php');
         }else{
             header('Location: order.php');
         }
