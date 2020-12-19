@@ -1091,7 +1091,9 @@ ol {
   text-align: center;
   position: relative;
 }
-.categories__deal__countdown .categories__deal__countdown__timer .cd-item:after {
+.categories__deal__countdown
+  .categories__deal__countdown__timer
+  .cd-item:after {
   position: absolute;
   right: 0;
   top: 7px;
@@ -1100,7 +1102,9 @@ ol {
   font-weight: 700;
   color: #3d3d3d;
 }
-.categories__deal__countdown .categories__deal__countdown__timer .cd-item:last-child:after {
+.categories__deal__countdown
+  .categories__deal__countdown__timer
+  .cd-item:last-child:after {
   display: none;
 }
 .categories__deal__countdown .categories__deal__countdown__timer .cd-item span {
@@ -1609,7 +1613,7 @@ address {
   }
 
   .slicknav_nav .slicknav_row,
-.slicknav_nav a {
+  .slicknav_nav a {
     padding: 7px 0;
     margin: 0;
     color: #111111;
@@ -1871,7 +1875,12 @@ address {
     overflow-y: auto;
   }
 
-  .shopping__cart__table table tbody tr td.product__cart__item .product__cart__item__pic {
+  .shopping__cart__table
+    table
+    tbody
+    tr
+    td.product__cart__item
+    .product__cart__item__pic {
     float: none;
     margin-right: 0;
   }
@@ -2003,12 +2012,21 @@ address {
   width: 100%;
   background-position-x: -1.875rem;
   background-size: 7.25rem 0.1875rem;
-  background-image: repeating-linear-gradient(45deg, #6fa6d6, #6fa6d6 33px, transparent 0, transparent 41px, #f18d9b 0, #f18d9b 74px, transparent 0, transparent 82px);
+  background-image: repeating-linear-gradient(
+    45deg,
+    #6fa6d6,
+    #6fa6d6 33px,
+    transparent 0,
+    transparent 41px,
+    #f18d9b 0,
+    #f18d9b 74px,
+    transparent 0,
+    transparent 82px
+  );
 }
 
 #timeline-wrap {
   margin: 20% 10%;
-  top: 100;
   position: relative;
 }
 
@@ -2020,6 +2038,9 @@ address {
 }
 
 .marker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 1000;
   color: #fff;
   width: 50px;

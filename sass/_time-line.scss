@@ -1,6 +1,5 @@
 #timeline-wrap {
   margin: 20% 10%;
-  top: 100;
   position: relative;
 }
 
@@ -12,6 +11,9 @@
 }
 
 .marker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 1000;
   color: #fff;
   width: 50px;

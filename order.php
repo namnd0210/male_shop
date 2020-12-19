@@ -1,3 +1,105 @@
+<?php
+//Khai báo sử dụng session
+session_start();
+$list_order = [];
+$list_order_cho_xac_nhan = [];
+$list_order_da_xac_nhan = [];
+$list_order_dang_giao = [];
+$list_order_da_giao = [];
+$list_order_da_huy = [];
+if (isset($_SESSION['user_id'])) {
+    include 'connection.php';
+    $user_id = $_SESSION['user_id'];
+    $sql = "select * from orders where user_id = $user_id ORDER BY id DESC ";
+    $query = $conn->query($sql);
+    while ($row = $query->fetch_assoc()) {
+        $order_id = $row['id'];
+        $sql2 = "select od.*, od.quantity as order_quantity, p.*,p.name as product_name, p.id as product_id, p.price as product_price from order_detail as od
+                JOIN products as p ON od.product_id = p.id
+                where od.order_id = $order_id";
+        $query2 = $conn->query($sql2);
+        $data = [];
+        while ($row2 = $query2->fetch_assoc()) {
+            $data[] = $row2;
+        }
+        $row['order_detail'] = $data;
+        $list_order[] = $row;
+    }
+    $query_cho_xac_nhan = $conn->query("select * from orders where user_id = $user_id and delivery_status = 0 ORDER BY id DESC ");
+    while ($row = $query_cho_xac_nhan->fetch_assoc()) {
+        $order_id = $row1['id'];
+        $sql2 = "select od.*, od.quantity as order_quantity, p.*,p.name as product_name, p.id as product_id, p.price as product_price from order_detail as od
+                JOIN products as p ON od.product_id = p.id
+                where od.order_id = $order_id";
+        $query2 = $conn->query($sql2);
+        $data = [];
+        while ($row2 = $query2->fetch_assoc()) {
+            $data[] = $row2;
+        }
+        $row['order_detail'] = $data;
+        $list_order_cho_xac_nhan[] = $row;
+    }
+    $query_da_xac_nhan = $conn->query("select * from orders where user_id = $user_id and delivery_status = 1 ORDER BY id DESC ");
+    while ($row = $query_da_xac_nhan->fetch_assoc()) {
+        $order_id = $row['id'];
+        $sql2 = "select od.*, od.quantity as order_quantity, p.*,p.name as product_name, p.id as product_id, p.price as product_price from order_detail as od
+                JOIN products as p ON od.product_id = p.id
+                where od.order_id = $order_id";
+        $query2 = $conn->query($sql2);
+        $data = [];
+        while ($row2 = $query2->fetch_assoc()) {
+            $data[] = $row2;
+        }
+        $row['order_detail'] = $data;
+        $list_order_da_xac_nhan[] = $row;
+    }
+    $query_dang_giao = $conn->query("select * from orders where user_id = $user_id and delivery_status = 2 ORDER BY id DESC ");
+    while ($row = $query_dang_giao->fetch_assoc()) {
+        $order_id = $row['id'];
+        $sql2 = "select od.*, od.quantity as order_quantity, p.*,p.name as product_name, p.id as product_id, p.price as product_price from order_detail as od
+                JOIN products as p ON od.product_id = p.id
+                where od.order_id = $order_id";
+        $query2 = $conn->query($sql2);
+        $data = [];
+        while ($row2 = $query2->fetch_assoc()) {
+            $data[] = $row2;
+        }
+        $row['order_detail'] = $data;
+        $list_order_dang_giao[] = $row;
+    }
+    $query_da_giao = $conn->query("select * from orders where user_id = $user_id and delivery_status = 3 ORDER BY id DESC ");
+    while ($row = $query_da_giao->fetch_assoc()) {
+        $order_id = $row['id'];
+        $sql2 = "select od.*, od.quantity as order_quantity, p.*,p.name as product_name, p.id as product_id, p.price as product_price from order_detail as od
+                JOIN products as p ON od.product_id = p.id
+                where od.order_id = $order_id";
+        $query2 = $conn->query($sql2);
+        $data = [];
+        while ($row2 = $query2->fetch_assoc()) {
+            $data[] = $row2;
+        }
+        $row['order_detail'] = $data;
+        $list_order_da_giao[] = $row;
+    }
+    $query_da_huy = $conn->query("select * from orders where user_id = $user_id and delivery_status = 4 ORDER BY id DESC ");
+    while ($row = $query_da_huy->fetch_assoc()) {
+        $order_id = $row['id'];
+        $sql2 = "select od.*, od.quantity as order_quantity, p.*,p.name as product_name, p.id as product_id, p.price as product_price from order_detail as od
+                JOIN products as p ON od.product_id = p.id
+                where od.order_id = $order_id";
+        $query2 = $conn->query($sql2);
+        $data = [];
+        while ($row2 = $query2->fetch_assoc()) {
+            $data[] = $row2;
+        }
+        $row['order_detail'] = $data;
+        $list_order_da_huy[] = $row;
+    }
+    echo '<pre>'; print_r($list_order); echo '</pre>';
+        // exit;
+}
+?>
+
 <!DOCTYPE php>
 <php lang="zxx">
 
@@ -109,6 +211,61 @@
 
                         <!-- order list -->
                         <div class="list__order--list-info">
+                            <?php foreach ($list_order as $order) {?>
+
+                            <div class="shop-info row">
+                                <p class="shop-name"
+                                    style="color: red; border: 1px solid red; padding: 0.25rem 0.5rem; border-radius: 0.5rem;">
+                                    <?php echo $order['email']; ?>
+                                </p>
+                                <div class="d-flex justify-content-end">
+                                    <p class="time mr-5" style="align-items: center; display: flex;">
+                                        <?php echo $order['created_at']; ?>
+                                    </p>
+                                    <p class="status"
+                                        style="border: 1px solid #59bd1d; padding: 0.25rem 0.5rem; border-radius: 0.5rem;">
+                                        <?php echo $order['status']; ?>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <?php foreach ($order['order_detail'] as $item) {?>
+
+                            <div class="list__order--list-item">
+                                <div class="item row">
+                                    <div class="image pr-3">
+                                        <a href=""><img src="${item.image}" alt="" /></a>
+                                    </div>
+                                    <div class="information">
+                                        <div class="information--name">
+                                            <?php echo $item['name']; ?>
+                                        </div>
+                                        <div class="category"> <?php echo $item['category']; ?></div>
+                                        <div class="amount">x <?php echo $item['quantity']; ?></div>
+                                    </div>
+                                    <div class="price">
+                                        <div class="price--origin">$<?php echo $item['product_price']; ?></div>
+                                        <div class="price--sale">
+                                            $<?php echo $item['product_price']*(100-$item['percent_sale'])/100; ?></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <?php }?>
+
+                            <div class="list__order--footer mb-2">
+                                <button class="btn btn-danger cancel-order" data-toggle="modal"
+                                    data-target="#exampleModal">
+                                    Hủy đơn hàng
+                                </button>
+                                <button type="button" class="btn btn-info">Đánh giá</button>
+                                <button type="button" class="btn btn-light">
+                                    <a href="order-details.php?=<?php echo $order['id']; ?>">Xem chi tiết đơn hàng</a>
+                                </button>
+                                <div class="cash"><i class="fa fa-money"></i></div>
+                                <div class="total">Tổng số tiền: $ <?php echo $order['total_money']; ?></div>
+                            </div>
+                            <?php }?>
                         </div>
 
                     </div>
@@ -208,7 +365,7 @@
             <!-- Footer Section End -->
 
             <!-- Js Plugins -->
-            <script type="module" src="js/index.js"></script>
+            <!-- <script type="module" src="js/index.js"></script> -->
             <script src="js/jquery-3.3.1.min.js"></script>
             <script src="js/bootstrap.min.js"></script>
             <script src="js/jquery.nice-select.min.js"></script>

@@ -1,3 +1,105 @@
+<?php
+//Khai báo sử dụng session
+session_start();
+$list_order = [];
+$list_order_cho_xac_nhan = [];
+$list_order_da_xac_nhan = [];
+$list_order_dang_giao = [];
+$list_order_da_giao = [];
+$list_order_da_huy = [];
+if (isset($_SESSION['user_id'])) {
+    include 'connection.php';
+    $user_id = $_SESSION['user_id'];
+    $sql = "select * from orders where user_id = $user_id ORDER BY id DESC ";
+    $query = $conn->query($sql);
+    while ($row = $query->fetch_assoc()) {
+        $order_id = $row['id'];
+        $sql2 = "select od.*, od.quantity as order_quantity, p.*,p.name as product_name, p.id as product_id, p.price as product_price from order_detail as od
+                JOIN products as p ON od.product_id = p.id
+                where od.order_id = $order_id";
+        $query2 = $conn->query($sql2);
+        $data = [];
+        while ($row2 = $query2->fetch_assoc()) {
+            $data[] = $row2;
+        }
+        $row['order_detail'] = $data;
+        $list_order[] = $row;
+    }
+    $query_cho_xac_nhan = $conn->query("select * from orders where user_id = $user_id and delivery_status = 0 ORDER BY id DESC ");
+    while ($row = $query_cho_xac_nhan->fetch_assoc()) {
+        $order_id = $row1['id'];
+        $sql2 = "select od.*, od.quantity as order_quantity, p.*,p.name as product_name, p.id as product_id, p.price as product_price from order_detail as od
+                JOIN products as p ON od.product_id = p.id
+                where od.order_id = $order_id";
+        $query2 = $conn->query($sql2);
+        $data = [];
+        while ($row2 = $query2->fetch_assoc()) {
+            $data[] = $row2;
+        }
+        $row['order_detail'] = $data;
+        $list_order_cho_xac_nhan[] = $row;
+    }
+    $query_da_xac_nhan = $conn->query("select * from orders where user_id = $user_id and delivery_status = 1 ORDER BY id DESC ");
+    while ($row = $query_da_xac_nhan->fetch_assoc()) {
+        $order_id = $row['id'];
+        $sql2 = "select od.*, od.quantity as order_quantity, p.*,p.name as product_name, p.id as product_id, p.price as product_price from order_detail as od
+                JOIN products as p ON od.product_id = p.id
+                where od.order_id = $order_id";
+        $query2 = $conn->query($sql2);
+        $data = [];
+        while ($row2 = $query2->fetch_assoc()) {
+            $data[] = $row2;
+        }
+        $row['order_detail'] = $data;
+        $list_order_da_xac_nhan[] = $row;
+    }
+    $query_dang_giao = $conn->query("select * from orders where user_id = $user_id and delivery_status = 2 ORDER BY id DESC ");
+    while ($row = $query_dang_giao->fetch_assoc()) {
+        $order_id = $row['id'];
+        $sql2 = "select od.*, od.quantity as order_quantity, p.*,p.name as product_name, p.id as product_id, p.price as product_price from order_detail as od
+                JOIN products as p ON od.product_id = p.id
+                where od.order_id = $order_id";
+        $query2 = $conn->query($sql2);
+        $data = [];
+        while ($row2 = $query2->fetch_assoc()) {
+            $data[] = $row2;
+        }
+        $row['order_detail'] = $data;
+        $list_order_dang_giao[] = $row;
+    }
+    $query_da_giao = $conn->query("select * from orders where user_id = $user_id and delivery_status = 3 ORDER BY id DESC ");
+    while ($row = $query_da_giao->fetch_assoc()) {
+        $order_id = $row['id'];
+        $sql2 = "select od.*, od.quantity as order_quantity, p.*,p.name as product_name, p.id as product_id, p.price as product_price from order_detail as od
+                JOIN products as p ON od.product_id = p.id
+                where od.order_id = $order_id";
+        $query2 = $conn->query($sql2);
+        $data = [];
+        while ($row2 = $query2->fetch_assoc()) {
+            $data[] = $row2;
+        }
+        $row['order_detail'] = $data;
+        $list_order_da_giao[] = $row;
+    }
+    $query_da_huy = $conn->query("select * from orders where user_id = $user_id and delivery_status = 4 ORDER BY id DESC ");
+    while ($row = $query_da_huy->fetch_assoc()) {
+        $order_id = $row['id'];
+        $sql2 = "select od.*, od.quantity as order_quantity, p.*,p.name as product_name, p.id as product_id, p.price as product_price from order_detail as od
+                JOIN products as p ON od.product_id = p.id
+                where od.order_id = $order_id";
+        $query2 = $conn->query($sql2);
+        $data = [];
+        while ($row2 = $query2->fetch_assoc()) {
+            $data[] = $row2;
+        }
+        $row['order_detail'] = $data;
+        $list_order_da_huy[] = $row;
+    }
+    echo '<pre>'; print_r($list_order); echo '</pre>';
+        // exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
