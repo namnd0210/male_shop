@@ -95,7 +95,7 @@ if (isset($_SESSION['user_id'])) {
         $row['order_detail'] = $data;
         $list_order_da_huy[] = $row;
     }
-    echo '<pre>'; print_r($list_order); echo '</pre>';
+    // echo '<pre>'; print_r($list_order); echo '</pre>';
         // exit;
 }
 ?>
@@ -200,38 +200,46 @@ if (isset($_SESSION['user_id'])) {
                             <a href="order.php" class="">Trở về</a>
                         </button>
 
+
+                        <?php foreach ($list_order as $order) {?>
+
                         <div id="timeline-wrap">
                             <div id="timeline"></div>
 
                             <!-- This is the individual marker-->
-                            <div class="marker mfirst timeline-icon one">
+                            <div class="marker mfirst timeline-icon one"
+                                style="<?php echo $order['status'] == 1 ? 'background: #faaa3a !important;' : '' ?>">
                                 <i class="fa fa-list"></i>
                                 <div class="marker-text">Đơn hàng đã đặt</div>
                             </div>
                             <!-- / marker -->
 
                             <!-- This is the individual marker-->
-                            <div class="marker m2 timeline-icon two">
+                            <div class="marker m2 timeline-icon two"
+                                style="<?php echo $order['status'] == 2 ? 'background: #faaa3a !important;' : '' ?>">
                                 <i class="fa fa-money"></i>
                                 <div class="marker-text">Đã xác nhận thông tin thanh toán</div>
                             </div>
                             <!-- / marker -->
 
                             <!-- This is the individual marker-->
-                            <div class="marker m3 timeline-icon three">
+                            <div class="marker m3 timeline-icon three"
+                                style="<?php echo $order['status'] == 3 ? 'background: #faaa3a !important;' : '' ?>">
                                 <i class="fa fa-truck"></i>
                                 <div class="marker-text">Đã giao cho ĐVVC</div>
                             </div>
                             <!-- / marker -->
 
                             <!-- This is the individual marker-->
-                            <div class="marker m4 timeline-icon four">
+                            <div class="marker m4 timeline-icon four"
+                                style="<?php echo $order['status'] == 4 ? 'background: #faaa3a !important;' : '' ?>">
                                 <i class="fa fa-envelope"></i>
                                 <div class="marker-text">Đã hàng đã nhận</div>
                             </div>
 
                             <!-- This is the individual marker-->
-                            <div class="marker mlast timeline-icon five">
+                            <div class="marker mlast timeline-icon five"
+                                style="<?php echo $order['status'] == 5 ? 'background: #faaa3a !important;' : '' ?>">
                                 <i class="fa fa-hourglass-start"></i>
                                 <div class="marker-text">Đánh giá</div>
                             </div>
@@ -263,60 +271,41 @@ if (isset($_SESSION['user_id'])) {
                                 <div class="shopee-border-delivery"></div>
                             </div>
 
+
+                            <?php foreach ($order['order_detail'] as $item) {?>
+
                             <div class="list__order--list-info">
                                 <div class="list__order--list-item">
                                     <div class="item row">
                                         <div class="image pr-3">
-                                            <a href=""><img src="img/product/product-2.jpg" alt="" /></a>
+                                            <a href=""><img src="${item.image}" alt="" /></a>
                                         </div>
                                         <div class="information">
-                                            <div class="information--name">Piqué Biker Jacket</div>
-                                            <div class="category">Giày</div>
-                                            <div class="amount">x 2</div>
+                                            <div class="information--name">
+                                                <?php echo $item['name']; ?>
+                                            </div>
+                                            <div class="category"> <?php echo $item['category']; ?></div>
+                                            <div class="amount">x <?php echo $item['quantity']; ?></div>
                                         </div>
                                         <div class="price">
-                                            <div class="price--origin">$100</div>
-                                            <div class="price--sale">$50</div>
+                                            <div class="price--origin"><?php echo $item['product_price']; ?>vnđ</div>
+                                            <div class="price--sale">
+                                                <?php echo $item['product_price']*(100-$item['percent_sale'])/100; ?>vnđ
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="item row">
-                                        <div class="image pr-3">
-                                            <a href=""><img src="img/product/product-1.jpg" alt="" /></a>
-                                        </div>
-                                        <div class="information">
-                                            <div class="information--name">Piqué Biker Jacket</div>
-                                            <div class="category">Giày</div>
-                                            <div class="amount">x 2</div>
-                                        </div>
-                                        <div class="price">
-                                            <div class="price--origin">$100</div>
-                                            <div class="price--sale">$50</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="item row">
-                                        <div class="image pr-3">
-                                            <a href=""><img src="img/product/product-3.jpg" alt="" /></a>
-                                        </div>
-                                        <div class="information">
-                                            <div class="information--name">Piqué Biker Jacket</div>
-                                            <div class="category">Giày</div>
-                                            <div class="amount">x 2</div>
-                                        </div>
-                                        <div class="price">
-                                            <div class="price--origin">$100</div>
-                                            <div class="price--sale">$50</div>
-                                        </div>
-                                    </div>
+                                    <?php }?>
 
                                     <div class="row py-5 d-flex justify-content-end" style="font-size: 20px;">
                                         <div class="cash"><i class="fa fa-money pr-2"></i></div>
-                                        <div class="total">Tổng số tiền: $450</div>
+                                        <div class="total">Tổng số tiền: <?php echo $order['total_money']; ?>vnđ</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <?php }?>
                     </div>
                 </div>
             </div>

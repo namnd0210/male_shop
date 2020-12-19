@@ -244,9 +244,10 @@ if (isset($_SESSION['user_id'])) {
                                         <div class="amount">x <?php echo $item['quantity']; ?></div>
                                     </div>
                                     <div class="price">
-                                        <div class="price--origin">$<?php echo $item['product_price']; ?></div>
+                                        <div class="price--origin"><?php echo $item['product_price']; ?>vnđ</div>
                                         <div class="price--sale">
-                                            $<?php echo $item['product_price']*(100-$item['percent_sale'])/100; ?></div>
+                                            <?php echo $item['product_price']*(100-$item['percent_sale'])/100; ?>vnđ
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -263,7 +264,7 @@ if (isset($_SESSION['user_id'])) {
                                     <a href="order-details.php?=<?php echo $order['id']; ?>">Xem chi tiết đơn hàng</a>
                                 </button>
                                 <div class="cash"><i class="fa fa-money"></i></div>
-                                <div class="total">Tổng số tiền: $ <?php echo $order['total_money']; ?></div>
+                                <div class="total">Tổng số tiền: <?php echo $order['total_money']; ?>vnđ</div>
                             </div>
                             <?php }?>
                         </div>
