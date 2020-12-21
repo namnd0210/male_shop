@@ -1,6 +1,6 @@
 <?php
 //Khai báo sử dụng session
-session_start();
+include('start-session.php');
 $list_order = [];
 $list_order_cho_xac_nhan = [];
 $list_order_da_xac_nhan = [];

@@ -1,6 +1,6 @@
 <?php
 //Khai báo sử dụng session
-// session_start(); 
+include('start-session.php');
 //Khai báo utf-8 để hiển thị được tiếng việt
 header('Content-Type: text/html; charset=UTF-8');
 //Xử lý đăng nhập
