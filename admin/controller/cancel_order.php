@@ -44,8 +44,8 @@ if (isset($_GET['order_id']) && $_GET['order_id'] != null && isset($_SESSION['is
     function sendMail($email, $body, $subject)
     {
         $mail = new PHPMailer(true);
-        $config_email = 'thongbao.bestbank@gmail.com';
-        $config_pass = 'bestbank@123';
+        $config_email = 'tvkhtest1210@gmail.com';
+        $config_pass = 'tvkhtest@1210@';
         $mail->IsSMTP(); // set mailer to use SMTP
         $mail->CharSet = 'UTF-8';
         $mail->Host = "smtp.gmail.com"; // specify main and backup server
@@ -63,9 +63,9 @@ if (isset($_GET['order_id']) && $_GET['order_id'] != null && isset($_SESSION['is
         $mail->Password = $config_pass; // your SMTP password or your gmail password
         $from = $config_email; // Reply to this email
         // $to=$email; // Recipients email ID
-        $name = 'Shop Online'; // Recipient's name
+        $name = 'Male shop'; // Recipient's name
         $mail->setFrom($from, $subject);
-        $mail->FromName = 'Shop Online'; // Name to indicate where the email came from when the recepient received
+        $mail->FromName = 'Male shop'; // Name to indicate where the email came from when the recepient received
 
         $mail->AddAddress($email, $name);
         $mail->AddReplyTo($from, $subject);
@@ -78,7 +78,7 @@ if (isset($_GET['order_id']) && $_GET['order_id'] != null && isset($_SESSION['is
             return false;
         }
     }
-    $subject = "Shop Online của HUY thông báo";
+    $subject = "Hủy đơn hàng";
     $body = 'Đơn hàng ' . $order_detail['code'] . ' của bạn đã bị chủ shop hủy';
     if (isset($order_detail['email'])) {
         $email = $order_detail['email'];

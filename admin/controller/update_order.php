@@ -77,8 +77,8 @@ if (isset($_POST['update_order']) && isset($_SESSION['is_admin']) && $_SESSION['
         function sendMail($email, $body, $subject)
         {
             $mail = new PHPMailer(true);
-            $config_email = 'thongbao.bestbank@gmail.com';
-            $config_pass = 'bestbank@123';
+            $config_email = 'tvkhtest1210@gmail.com';
+            $config_pass = 'tvkhtest@1210@';
             $mail->SMTPDebug = 2;
             $mail->IsSMTP(); // set mailer to use SMTP
             $mail->CharSet = 'UTF-8';
@@ -97,9 +97,9 @@ if (isset($_POST['update_order']) && isset($_SESSION['is_admin']) && $_SESSION['
             $mail->Password = $config_pass; // your SMTP password or your gmail password
             $from = $config_email; // Reply to this email
             //$to=$email; // Recipients email ID
-            $name = 'Shop Online'; // Recipient's name
+            $name = 'Male shop'; // Recipient's name
             $mail->setFrom($from, $subject);
-            $mail->FromName = 'Shop Online'; // Name to indicate where the email came from when the recepient received
+            $mail->FromName = 'Male shop'; // Name to indicate where the email came from when the recepient received
 
             $mail->AddAddress($email, $name);
             // $mail->AddReplyTo($from, $subject);
@@ -112,7 +112,7 @@ if (isset($_POST['update_order']) && isset($_SESSION['is_admin']) && $_SESSION['
                 return false;
             }
         }
-        $subject = "Shop Online của HUY thông báo";
+        $subject = "Cập nhật đơn hàng";
         $body = $content.". Với ghi chú là: ". $note;
         if (isset($order_detail['email'])) {
             $email = $order_detail['email'];

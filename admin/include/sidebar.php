@@ -1,23 +1,23 @@
 <nav id="sidebar" class="sidebar">
-			<div class="sidebar-content js-simplebar">
-				<a class="sidebar-brand" href="index-2.html">
-					<span class="align-middle">Shop Online</span>
-				</a>
+    <div class="sidebar-content js-simplebar">
+        <a class="sidebar-brand" href="index-2.html">
+            <span class="align-middle">Male shop</span>
+        </a>
 
-				<ul class="sidebar-nav">
-					<li class="sidebar-header">
-						Quản lý
-					</li>
-					<li class="sidebar-item active">
-						<a data-target="#dashboards" data-toggle="collapse" class="sidebar-link" href="index.php">
-						<i class="align-middle" data-feather="credit-card"></i> <span class="align-middle">Đơn hàng</span>
-						</a>
-						<ul id="dashboards" class="sidebar-dropdown list-unstyled collapse show" data-parent="#sidebar">
-							<li class="sidebar-item"><a class="sidebar-link" href="create_order.php">Thêm mới đơn hàng</a></li>
-						</ul>
-					</li>
+        <ul class="sidebar-nav">
+            <li class="sidebar-header">
+                Quản lý
+            </li>
+            <li class="sidebar-item active">
+                <a data-target="#dashboards" data-toggle="collapse" class="sidebar-link" href="index.php">
+                    <i class="align-middle" data-feather="credit-card"></i> <span class="align-middle">Đơn hàng</span>
+                </a>
+                <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse show" data-parent="#sidebar">
+                    <li class="sidebar-item"><a class="sidebar-link" href="create_order.php">Thêm mới đơn hàng</a></li>
+                </ul>
+            </li>
 
-					<!-- <li class="sidebar-item">
+            <!-- <li class="sidebar-item">
 						<a data-target="#pages" data-toggle="collapse" class="sidebar-link collapsed">
 							<i class="align-middle" data-feather="layout"></i> <span class="align-middle">Pages</span>
 						</a>
@@ -215,9 +215,9 @@
 							</li>
 						</ul>
 					</li> -->
-				</ul>
+        </ul>
 
-				<!-- <div class="sidebar-cta">
+        <!-- <div class="sidebar-cta">
 					<div class="sidebar-cta-content">
 						<strong class="d-inline-block mb-2">Weekly Sales Report</strong>
 						<div class="mb-3 text-sm">
@@ -226,5 +226,5 @@
 						<a href="https://adminkit.io/" class="btn btn-outline-primary btn-block" target="_blank">Download</a>
 					</div>
 				</div> -->
-			</div>
-		</nav>
+    </div>
+</nav>

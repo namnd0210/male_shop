@@ -95,7 +95,7 @@ if (isset($_SESSION['user_id'])) {
         $row['order_detail'] = $data;
         $list_order_da_huy[] = $row;
     }
-    echo '<pre>'; print_r($list_order); echo '</pre>';
+    // echo '<pre>'; print_r($list_order); echo '</pre>';
         // exit;
 }
 ?>
