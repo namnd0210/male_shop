@@ -13,14 +13,7 @@
 			$phone = $_GET['phone'];
 			$sql .="and `phone` LIKE '%$phone%' ";
 		}
-		if(isset($_GET['from_date']) && $_GET['from_date'] != null){
-			$from_date = date('Y-m-d H:i:s', strtotime($_GET['from_date']));
-			$sql .="and `created_at` >= '$from_date' ";
-		}
-		if(isset($_GET['to_date']) && $_GET['to_date'] != null){
-			$to_date = date('Y-m-d H:i:s', strtotime($_GET['to_date']) + 24*3600 -1);
-			$sql .="and `created_at` <= '$to_date' ";
-		}
+	
 		$sql .="ORDER BY id DESC";
 		$query = $conn->query($sql);
 		$sum_money = 0;
@@ -148,36 +141,11 @@
                                                     placeholder="Số điện thoại" class="form-control">
                                             </div>
                                             <div class="col-md-3 col-lg-3">
-                                                <?php
-												$from_date = null;
-												if(isset($_GET['from_date']))
-												{
-													$from_date = trim($_GET['from_date']);
-												}
-											?>
-                                                <input type="date" placeholder="Từ ngày" class="form-control"
-                                                    name="from_date" id="from_date"
-                                                    value="<?php if($from_date != null) echo $from_date?>"
-                                                    max="<?php echo date("Y-m-d") ?>">
-                                            </div>
-                                            <div class="col-md-3 col-lg-3">
-                                                <?php
-												$to_date = '';
-												if(isset($_GET['to_date']))
-												{
-													$to_date = trim($_GET['to_date']);
-												}
-											?>
-                                                <input type="date" placeholder="Đến ngày" class="form-control"
-                                                    name="to_date" id="to_date"
-                                                    value="<?php if($to_date != null) echo $to_date ?>"
-                                                    max="<?php echo date("Y-m-d") ?>">
+                                                <button type="submit" class="btn btn-primary mr-2 search"><i
+                                                        class="fa fa-search"></i> Tìm kiếm</button>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 col-lg-12 text-center mt-2">
-                                            <button type="submit" class="btn btn-primary mr-2 search"><i
-                                                    class="fa fa-search"></i> Tìm kiếm</button>
-                                        </div>
+
                                     </form>
                                 </div>
                             </div>
@@ -192,12 +160,19 @@
                                         <div class="col-md-6 col-lg-6">
                                             <h3>Tổng số doanh thu: <?php echo $sum_money ?> VNĐ </h3>
                                         </div>
-                                        <div class="col-md-3 col-lg-3">
+                                        <div class="col-md-3 col-lg-3 d-flex justify-content-end">
                                             <a href="create_order.php">
                                                 <button class="btn btn-primary mr-2"><i class="fa fa-plus"></i> Thêm
                                                     mới</button>
                                             </a>
+
+                                            <a href="../index.php">
+                                                <button class="btn btn-danger mr-2"> Mua hàng
+                                                    tiếp
+                                                </button>
+                                            </a>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -278,7 +253,7 @@
                                                 <?php if($item['user_id'] != null){?>
                                                 <a href="update_order.php?order_id=<?php echo $item['id']?>"
                                                     class="btn btn-warning mb-2">
-                                                    <i class="fa fa-edit pd-1"></i>
+                                                    <i class="fa fa-edit pd-1"> Chỉnh sửa</i>
                                                 </a>
                                                 <?php } ?>
                                                 <?php if($item['status'] == 1){?>
@@ -288,12 +263,11 @@
                                                 <?php } ?>
                                                 <?php if($item['delivery_status'] != 4){?>
                                                 <a href="controller/cancel_order.php?order_id=<?php echo $item['id']?>"
-                                                    class="cancel_order"> <button
-                                                        class="btn btn-danger mb-2">Hủy</button> </a>
+                                                    class="cancel_order"> <button class="btn btn-danger mb-2">Hủy
+                                                        đơn</button> </a>
                                                 <?php } ?>
                                                 <a href="controller/delete_order.php?order_id=<?php echo $item['id']?>"
-                                                    class="btn btn-danger delete_order"> <i
-                                                        class="fa fa-trash pd-1"></i> </a>
+                                                    class="btn btn-secondary delete_order  mb-2"> Xóa đơn </a>
                                             </td>
                                         </tr>
                                         <?php $dem++; }?>
