@@ -253,7 +253,7 @@ if (isset($_SESSION['user_id'])) {
 
                             <?php }?>
 
-                            <div class="list__order--footer mb-2">
+                            <div class="list__order--footer my-5 pb-5">
                                 <button class="btn btn-danger cancel-order" data-toggle="modal"
                                     data-target="#exampleModal">
                                     Hủy đơn hàng
@@ -262,7 +262,7 @@ if (isset($_SESSION['user_id'])) {
                                 <button type="button" class="btn btn-light">
                                     <a href="order-details.php?=<?php echo $order['id']; ?>">Xem chi tiết đơn hàng</a>
                                 </button>
-                                <div class="cash"><i class="fa fa-money"></i></div>
+                                <div class="cash d-flex align-items-center"><i class="fa fa-money"></i></div>
                                 <div class="total">Tổng số tiền: <?php echo $order['total_money']; ?>vnđ</div>
                             </div>
                             <?php }?>

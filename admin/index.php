@@ -195,8 +195,6 @@
                                             <th class="d-none d-xl-table-cell">Email</th>
                                             <th class="d-none d-xl-table-cell">Địa chỉ</th>
                                             <th>Tổng tiền</th>
-                                            <th class="d-none d-md-table-cell">TT mua</th>
-                                            <th class="d-none d-md-table-cell">TT Duyệt</th>
                                             <th class="d-none d-md-table-cell">TT vận chuyển</th>
                                             <th class="d-none d-md-table-cell">Sản phẩm</th>
                                             <th class="d-none d-md-table-cell">Ngày mua</th>
@@ -219,22 +217,6 @@
                                             <td><?php echo $item['email'] ?></td>
                                             <td><?php echo $item['address'] ?></td>
                                             <td><?php echo $item['total_money'] ?></td>
-                                            <td><?php 
-													if($item['type_buy'] == 1){
-														echo 'Online';
-													}else{
-														echo 'Offline';
-													}
-												?></td>
-                                            <td><?php 
-													if($item['status'] == 1){
-														echo '<span class="badge bg-warning">Chưa duyệt</span>';
-													}elseif($item['status'] == 2){
-														echo '<span class="badge bg-success">Đã duyệt</span>';
-													}else{
-														echo '<span class="badge bg-danger">Đã hủy</span>';
-													}
-												?></td>
                                             <td><?php 
 													if($item['delivery_status'] == 0)
 														echo 'Chờ xác nhận';

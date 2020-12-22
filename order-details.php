@@ -278,7 +278,7 @@ if (isset($_SESSION['user_id'])) {
                                 <div class="list__order--list-item">
                                     <div class="item row">
                                         <div class="image pr-3">
-                                            <a href=""><img src="${item.image}" alt="" /></a>
+                                            <a href=""><img src="<?php echo $item['image'] ?>" alt="" /></a>
                                         </div>
                                         <div class="information">
                                             <div class="information--name">
@@ -313,8 +313,8 @@ if (isset($_SESSION['user_id'])) {
     </div>
     </div>
 
-
     <?php include('footer.php') ?>
+
 
     <!-- Js Plugins -->
     <script type="module" src="js/order.js"></script>
